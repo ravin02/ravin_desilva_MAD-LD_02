@@ -37,9 +37,11 @@ import com.example.lectureexamples.R
 import com.example.lectureexamples.models.Movie
 import com.example.lectureexamples.models.getMovies
 
+//Source: https://semicolonspace.com/dropdown-menu-jetpack-compose/
 @Composable
 fun AppTopBar(navController: NavController) {
 
+    // to close menu again
     var showMenu by remember {
         mutableStateOf(false)
     }
@@ -137,8 +139,12 @@ fun WelcomeText(modifier: Modifier = Modifier, text: String = "default") {
     }
 
 }
+//Source: https://www.youtube.com/watch?v=0mfCbXrYBPE
+
 @Composable
 fun MovieRow(movie: Movie, onItemClick: (String) -> Unit = {}) {
+
+    // to close info section again
     var showMoreInfo by remember {
         mutableStateOf(false)
     }
@@ -182,7 +188,10 @@ fun MovieRow(movie: Movie, onItemClick: (String) -> Unit = {}) {
                     imageVector = if (showMoreInfo) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
                     contentDescription = "arrowUp",
                     modifier = Modifier.clickable { showMoreInfo = !showMoreInfo })
+
             }
+
+            // when arrow is clicked then info of the movie pops out
 
         Column(modifier = Modifier.fillMaxWidth()) {
         AnimatedVisibility(visible = showMoreInfo) {
